@@ -1,11 +1,19 @@
 "use client";
 
-import React from 'react'
+import React, { ReactNode } from "react";
+import { ThemeProvider } from "next-themes";
 
-function RootProvider() {
-    return (
-        <div>RootProvider</div>
-    )
+function RootProvider({ children }: { children: ReactNode }) {
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem
+      disableTransitionOnChange
+    >
+      {children}
+    </ThemeProvider>
+  );
 }
 
-export default RootProvider
+export default RootProvider;
